@@ -44,7 +44,7 @@ define('DB_COLLATE', '');
  */
 
 // This is where we define the OpenShift specific secure variable functions
-require_once(getenv('OPENSHIFT_REPO_DIR') . '.openshift/openshift.inc');
+require_once( dirname(__FILE__) . '/openshift.inc' );
 
 // Set the default keys to use
 $_default_keys = array(
@@ -128,10 +128,6 @@ define('FORCE_SSL_ADMIN', true);
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
   define('ABSPATH', dirname(__FILE__) . '/');
-
-/** Tell WordPress where the plugins directory really is */
-if ( !defined('WP_PLUGIN_DIR') && is_link(ABSPATH . '/wp-content/plugins') )
-  define('WP_PLUGIN_DIR', realpath(ABSPATH . '/wp-content/plugins'));
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
